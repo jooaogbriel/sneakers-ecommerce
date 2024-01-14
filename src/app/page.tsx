@@ -12,9 +12,9 @@ export default function Page() {
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
             <strong>Bem vindo ao meu projeto.</strong> uma loja virtual de tênis{' '}
             <a className="">
-              Com uma ótima ui {' '}
+              com uma ótima ui {' '}
             </a>
-            Desenvolvida por mim
+            desenvolvida por mim
           </p>
           <Link
             href="/dashboard"
