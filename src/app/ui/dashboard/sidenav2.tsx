@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
 import { useState } from "react";
 import close from '@/images/icon-close.svg'
 import menu from '@/images/icon-menu.svg'
@@ -40,8 +39,10 @@ const Navbar = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="w-full flex py-4 justify-between items-center  border-b border-solid border-Grayishblue">
+    <nav className="w-full flex py-4 justify-between items-center">
+      <Link href={'/'}>
       <Image src={logo} alt="hoobank" className="w-[124px] h-[20px]" />
+      </Link>
         <div className="flex h-[48px]  grow items-center justify-start ml-10 p-3 md:p-2 md:px-3">
              <Image className=" cursor-pointer mr-10" src={cart} alt=''/>
              <Image className=" w-10 cursor-pointer " src={avatar} alt=''/>
@@ -50,13 +51,13 @@ const Navbar = () => {
         {links.map((nav, index) => (
           <Link
             key={nav.name}
-            href={`#${nav.name}`}
+            href={`${nav.href}`}
             className={` font-normal cursor-pointer text-[16px] ${
               active === nav.name ? "text-primary" : "text-dimWhite"
             } ${index === links.length - 1 ? "mr-0" : "mr-10"}`}
             onClick={() => setActive(nav.name)}
           >
-            <p className="hidden md:block">{nav.name}</p>
+            <p className="hidden md:text-[15px] ss:text-xs ss:block">{nav.name}</p>
           </Link>
         ))}
       </ul>
@@ -71,19 +72,20 @@ const Navbar = () => {
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
+          } p-6 bg-black-gradient bg-Grayishblue absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
         >
           <ul className="list-none flex justify-end items-start flex-1 flex-col">
             {links.map((nav, index) => (
-              <li
+              <Link
                 key={nav.name}
+                href={nav.href}
                 className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                  active === nav.name ? "text-white" : "text-dimWhite"
+                  active === nav.name ? "text-primary" : "text-Verydarkblue"
                 } ${index === links.length - 1 ? "mb-0" : "mb-4"}`}
                 onClick={() => setActive(nav.name)}
               >
-                <a href={`#${nav.name}`}>{nav.name}</a>
-              </li>
+                <p className=" md:block">{nav.name}</p>
+              </Link>
             ))}
           </ul>
         </div>
