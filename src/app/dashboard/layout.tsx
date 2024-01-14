@@ -4,7 +4,7 @@ import styles from '../../../style'
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex h-screen flex-col  md:overflow-hidden">
-      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+      <div className={`${styles.paddingX} ${styles.flexCenter} border-b border-solid border-Grayishblue`}>
         <div className={`${styles.boxWidth}`}>
           <SideNav2 />
         </div>
