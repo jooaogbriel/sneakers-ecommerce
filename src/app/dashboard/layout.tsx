@@ -1,4 +1,4 @@
-import SideNav2 from '@/app/ui/dashboard/sidenav2';
+import SideNav2 from '@/app/ui/dashboard/sidenav';
 import styles from '../../../style'
  
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -8,8 +8,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className={`${styles.boxWidth}`}>
           <SideNav2 />
         </div>
-  </div>
-      <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+      </div>
+      <div className="flex align-top h-full flex-grow md:overflow-y-auto md:p-12">{children}</div>
     </div>
   );
 }
