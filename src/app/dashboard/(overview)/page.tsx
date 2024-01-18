@@ -1,7 +1,23 @@
+"use client"
 import Image from "next/image"
 import sneakerMain from '@/images/image-product-1.jpg'
+import { useState } from "react";
 
 const Page = () => {
+  const [quantSneaker, setQuantSneaker] = useState(0)
+
+  function add(){
+    setQuantSneaker(quantSneaker + 1)
+    }
+    
+  function sub(){
+    if(quantSneaker ===0){
+    setQuantSneaker(0)
+    } else {
+      setQuantSneaker(quantSneaker -1)
+    }
+  }
+  
   return (
     <div className="sm:flex sm:items-cente sm:p-10">
       <div className="w-full ">
@@ -21,11 +37,11 @@ const Page = () => {
           <span className="text-Darkgrayishblue line-through md:mb-3">$250</span>
         </div>   
         <div className="w-full md:flex">
-          <button className="md:mr-10 w-full md:h-[50px] md:items-center md:flex md:w-1/2 mb-3 bg-Lightgrayishblue rounded items-centerflex justify-around h-[50px] flex items-center">
-            <p className="font-bold text-primary text-3xl">-</p>
-            <p className="text-2xl">0</p>
-            <p className="font-bold text-primary text-3xl ">+</p>
-          </button>
+          <div className="md:mr-10 w-full md:h-[50px] md:items-center md:flex md:w-1/2 mb-3 bg-Lightgrayishblue rounded items-centerflex justify-around h-[50px] flex items-center">
+            <button onClick={sub} className="font-bold text-primary text-3xl">-</button>
+            <p className="text-2xl">{quantSneaker}</p>
+            <button onClick={add} className="font-bold text-primary text-3xl ">+</button>
+          </div>
           <button className="md:h-[50px] w-full font-semibold text-white bg-primary rounded items-center flex justify-center h-[50px]">Add to cart</button>
           </div>
       </div>
