@@ -9,7 +9,7 @@ import Image from 'next/image';
 import logo  from "@/images/logo.svg";
 import cart from '@/images/icon-cart.svg'
 import avatar from '@/images/image-avatar.png'
-
+import { Cart } from '../../ui/cart/cart'
 
 const links = [
     { 
@@ -36,17 +36,23 @@ const links = [
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
-  const pathname = usePathname();
+  const [isCartOpen, setCartOpen] = useState(false)
+
+  const toggleCart = () => {
+    setCartOpen(!isCartOpen)
+  }
 
   return (
     <nav className="w-full flex py-4 justify-between items-center">
       <Link href={'/'}>
-      <Image src={logo} alt="hoobank" className="w-[124px] h-[20px]" />
+      <Image src={logo} alt="" className="w-[124px] h-[20px]" />
       </Link>
-        <div className="flex h-[48px]  grow items-center justify-start ml-10 p-3 md:p-2 md:px-3">
-             <Image className=" cursor-pointer mr-10" src={cart} alt=''/>
+        <div className="flex h-[48px] grow items-center justify-start ml-10 p-3 md:p-2 md:px-3">
+             <Image onClick={toggleCart} className=" cursor-pointer mr-10" src={cart} alt=''/>     
              <Image className=" w-10 cursor-pointer " src={avatar} alt=''/>
+             <div>{isCartOpen && <Cart />}</div>
         </div>
+        
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
         {links.map((nav, index) => (
           <Link

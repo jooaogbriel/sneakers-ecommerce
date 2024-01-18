@@ -17,7 +17,6 @@ const Page = () => {
       setQuantSneaker(quantSneaker -1)
     }
   }
-  
   return (
     <div className="sm:flex sm:items-cente sm:p-10">
       <div className="w-full ">
