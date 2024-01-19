@@ -37,7 +37,6 @@ const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false)
-  const  {helloWorld}  = useContext(CartContext)
 
   const toggleCart = () => {
     setCartOpen(!isCartOpen)
@@ -53,7 +52,6 @@ const Navbar = () => {
              <Image onClick={toggleCart} className=" cursor-pointer mr-10" src={cart} alt=''/>     
              <Image className=" w-10 cursor-pointer " src={avatar} alt=''/>
              <div>{isCartOpen && <Cart />}</div>
-             <p>{helloWorld}</p>
         </div>
         
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">

@@ -29,7 +29,7 @@ const Page = () => {
           <h1 className=" font-bold text-3xl md:mb-5">{product.title}</h1>
           <p  className=" text-Darkgrayishblue "> These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
         </div>
-        <div className="flex items-center3 justify-between h-full w-full md:mt-10 md:flex-col md:items-start">
+        <div className="flex items-center justify-between h-full w-full md:mt-10 md:flex-col md:items-start">
           <div className="flex items-center">
             <p className="mr-5 font-bold text-2xl">${product.price}.00</p>
             <p className="text-primary font-semibold bg-secondary h-6 w-10 items-center flex rounded p-1">50%</p>
