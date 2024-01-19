@@ -1,15 +1,15 @@
 "use client"
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import close from '@/images/icon-close.svg'
 import menu from '@/images/icon-menu.svg'
 import Image from 'next/image';
 import logo  from "@/images/logo.svg";
 import cart from '@/images/icon-cart.svg'
 import avatar from '@/images/image-avatar.png'
-import { Cart } from '../../ui/cart/cart'
+import Cart from '../cart/cart';
+import { CartContext } from '@/app/contexts/CartContext';
 
 const links = [
     { 
@@ -37,11 +37,13 @@ const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
   const [isCartOpen, setCartOpen] = useState(false)
+  const  {helloWorld}  = useContext(CartContext)
 
   const toggleCart = () => {
     setCartOpen(!isCartOpen)
   }
-
+  
+  
   return (
     <nav className="w-full flex py-4 justify-between items-center">
       <Link href={'/'}>
@@ -51,6 +53,7 @@ const Navbar = () => {
              <Image onClick={toggleCart} className=" cursor-pointer mr-10" src={cart} alt=''/>     
              <Image className=" w-10 cursor-pointer " src={avatar} alt=''/>
              <div>{isCartOpen && <Cart />}</div>
+             <p>{helloWorld}</p>
         </div>
         
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
