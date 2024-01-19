@@ -2,19 +2,20 @@
 import Image from "next/image"
 import sneakerMain from '@/images/image-product-1.jpg'
 import { useState } from "react";
+import { product } from '../../constants/index'
 
 const Page = () => {
   const [quantSneaker, setQuantSneaker] = useState(0)
 
   function add(){
     setQuantSneaker(quantSneaker + 1)
-    }
+  }
     
   function sub(){
-    if(quantSneaker ===0){
+    if( quantSneaker === 0 ){
     setQuantSneaker(0)
     } else {
-      setQuantSneaker(quantSneaker -1)
+      setQuantSneaker(quantSneaker - 1)
     }
   }
   return (
@@ -25,12 +26,12 @@ const Page = () => {
       <div className="flex flex-col p-3 h-2/3 justify-between ">
         <div className="flex flex-col justify-between h-full ">
           <span className="text-primary text-sm p-1 font-medium md:mb-5">SNEAKER COMPANY</span>
-          <h1 className=" font-bold text-3xl md:mb-5">Fall Limited Edition Sneakers</h1>
+          <h1 className=" font-bold text-3xl md:mb-5">{product.title}</h1>
           <p  className=" text-Darkgrayishblue "> These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
         </div>
         <div className="flex items-center3 justify-between h-full w-full md:mt-10 md:flex-col md:items-start">
           <div className="flex items-center">
-            <p className="mr-5 font-bold text-2xl">$125.00</p>
+            <p className="mr-5 font-bold text-2xl">${product.price}.00</p>
             <p className="text-primary font-semibold bg-secondary h-6 w-10 items-center flex rounded p-1">50%</p>
           </div>
           <span className="text-Darkgrayishblue line-through md:mb-3">$250</span>

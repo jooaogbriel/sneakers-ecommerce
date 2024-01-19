@@ -1,14 +1,15 @@
-import React from 'react'
+import img from '@/images/image-product-1-thumbnail.jpg'
+import Image from 'next/image';
 
-export const Cart = () => {
+const Cart = () => {
   return (
-    <div className='w-[300px] rounded'> 
-        <div className=''>
-            <h1>Cart</h1>
-        </div>
-        <div>
-            <p>Your cart is empyt.</p>
-        </div>
+    <div>
+      <Image src={img} alt="Product" />
+      <div>
+      </div>
     </div>
-  )
-}
+  );
+};
+
+export default Cart;
+
