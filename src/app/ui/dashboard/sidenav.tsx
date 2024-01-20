@@ -9,7 +9,7 @@ import logo  from "@/images/logo.svg";
 import cart from '@/images/icon-cart.svg'
 import avatar from '@/images/image-avatar.png'
 import Cart from '../cart/cart';
-import { CartContext } from '@/app/contexts/CartContext';
+import {product} from '@/app/constants/index'
 
 const links = [
     { 

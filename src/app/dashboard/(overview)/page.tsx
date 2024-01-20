@@ -1,8 +1,9 @@
 "use client"
 import Image from "next/image"
 import sneakerMain from '@/images/image-product-1.jpg'
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { product } from '../../constants/index'
+import { CartContext } from "@/app/contexts/CartContext";
 
 const Page = () => {
   const [quantSneaker, setQuantSneaker] = useState(0)
@@ -18,6 +19,18 @@ const Page = () => {
       setQuantSneaker(quantSneaker - 1)
     }
   }
+
+  const { cart, handleAddItemToCart } = useContext(CartContext)
+
+  const handleAddToCartClick = () => {
+    const productTitle = product.title;
+    const productPrice = product.price;
+    const productImg = product.img; 
+  
+    handleAddItemToCart(productTitle, productPrice, productImg);
+  };
+  
+
   return (
     <div className="sm:flex sm:items-cente sm:p-10">
       <div className="w-full ">
@@ -42,7 +55,7 @@ const Page = () => {
             <p className="text-2xl">{quantSneaker}</p>
             <button onClick={add} className="font-bold text-primary text-3xl ">+</button>
           </div>
-          <button className="md:h-[50px] w-full font-semibold text-white bg-primary rounded items-center flex justify-center h-[50px]">Add to cart</button>
+          <button onClick={handleAddToCartClick} className="md:h-[50px] w-full font-semibold text-white bg-primary rounded items-center flex justify-center h-[50px]">Add to cart</button>
           </div>
       </div>
 
