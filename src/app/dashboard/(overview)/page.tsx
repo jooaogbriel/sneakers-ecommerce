@@ -5,6 +5,7 @@ import { useState, useContext } from "react";
 import { product } from '../../constants/index'
 import { CartContext } from "@/app/contexts/CartContext";
 
+
 const Page = () => {
   const [quantSneaker, setQuantSneaker] = useState(1)
   function add(){
@@ -39,7 +40,6 @@ const valorTotal = product.price * quantSneaker;
         <div className="flex flex-col justify-between h-full ">
           <span className="text-primary text-sm p-1 font-medium md:mb-5">SNEAKER COMPANY</span>
           <h1 className=" font-bold text-3xl md:mb-5">{product.title}</h1>
-          <p>{product.price}X{quantSneaker} = {valorTotal}</p>
           <p  className=" text-Darkgrayishblue "> These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
         </div>
         <div className="flex items-center justify-between h-full w-full md:mt-10 md:flex-col md:items-start">
