@@ -18,7 +18,7 @@ const Cart = () => {
         <div className='flex flex-col'>
           <h1 className='font-semibold mb-5' >Cart</h1>
           {/* Renderize os itens do carrinho aqui */}
-          {cart.map((item, index) => (
+          {cart.map((item:any, index:any) => (
             // Renderize os detalhes do item do carrinho aqui
             <div key={index} className='flex '>
               <Image className='rounded-lg flex h-14 w-14' alt='' src={img}></Image>
