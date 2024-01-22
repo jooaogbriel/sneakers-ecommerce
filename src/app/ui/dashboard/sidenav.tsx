@@ -42,6 +42,7 @@ const Navbar = () => {
   }
 
   return (
+    <>
     <nav className="w-full flex py-4 justify-between items-center">
       <Link href={'/'}>
       <Image src={logo} alt="" className="w-[124px] h-[20px]" />
@@ -49,7 +50,7 @@ const Navbar = () => {
         <div className="flex h-[48px] grow items-center justify-start ml-10 p-3 md:p-2 md:px-3">
              <Image onClick={toggleCart} className=" cursor-pointer mr-10" src={cart} alt=''/>     
              <Image className=" w-10 cursor-pointer " src={avatar} alt=''/>
-             <div>{isCartOpen && <Cart />}</div>
+          
         </div>
         
       <ul className="list-none sm:flex hidden justify-end items-center flex-1">
@@ -96,6 +97,8 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
+    <div className='absolute ml-10 w-[300px]'>{isCartOpen && <Cart />}</div>
+    </>
   );
 };
 
