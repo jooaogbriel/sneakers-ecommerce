@@ -6,31 +6,30 @@ import { product } from '../../constants/index'
 import { CartContext } from "@/app/contexts/CartContext";
 
 const Page = () => {
-  const [quantSneaker, setQuantSneaker] = useState(0)
-
+  const [quantSneaker, setQuantSneaker] = useState(1)
   function add(){
     setQuantSneaker(quantSneaker + 1)
   }
     
   function sub(){
-    if( quantSneaker === 0 ){
-    setQuantSneaker(0)
+    if( quantSneaker === 1 ){
+    setQuantSneaker(1)
     } else {
       setQuantSneaker(quantSneaker - 1)
     }
   }
 
-  const { cart, handleAddItemToCart } = useContext(CartContext)
-
+const { handleAddItemToCart } = useContext(CartContext)
+  
+const valorTotal = product.price * quantSneaker;
   const handleAddToCartClick = () => {
     const productTitle = product.title;
-    const productPrice = product.price;
+    const productPrice = valorTotal
     const productImg = product.img; 
   
     handleAddItemToCart(productTitle, productPrice, productImg);
   };
   
-
   return (
     <div className="sm:flex sm:items-cente sm:p-10">
       <div className="w-full ">
@@ -40,6 +39,7 @@ const Page = () => {
         <div className="flex flex-col justify-between h-full ">
           <span className="text-primary text-sm p-1 font-medium md:mb-5">SNEAKER COMPANY</span>
           <h1 className=" font-bold text-3xl md:mb-5">{product.title}</h1>
+          <p>{product.price}X{quantSneaker} = {valorTotal}</p>
           <p  className=" text-Darkgrayishblue "> These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weather can offer.</p>
         </div>
         <div className="flex items-center justify-between h-full w-full md:mt-10 md:flex-col md:items-start">
@@ -58,10 +58,7 @@ const Page = () => {
           <button onClick={handleAddToCartClick} className="md:h-[50px] w-full font-semibold text-white bg-primary rounded items-center flex justify-center h-[50px]">Add to cart</button>
           </div>
       </div>
-
     </div>
-
   )
 }
-
 export default Page
