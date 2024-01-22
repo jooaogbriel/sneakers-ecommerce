@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import { useState, useContext } from "react";
+import { useState } from "react";
 import close from '@/images/icon-close.svg'
 import menu from '@/images/icon-menu.svg'
 import Image from 'next/image';
@@ -9,7 +9,6 @@ import logo  from "@/images/logo.svg";
 import cart from '@/images/icon-cart.svg'
 import avatar from '@/images/image-avatar.png'
 import Cart from '../cart/cart';
-import {product} from '@/app/constants/index'
 
 const links = [
     { 
@@ -41,8 +40,7 @@ const Navbar = () => {
   const toggleCart = () => {
     setCartOpen(!isCartOpen)
   }
-  
-  
+
   return (
     <nav className="w-full flex py-4 justify-between items-center">
       <Link href={'/'}>
